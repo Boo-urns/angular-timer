@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="timerApp">
+<head>
+<title>AngularJS Timer</title>
+<script src="http://code.angularjs.org/1.1.4/angular.min.js"></script>
+<script src="js/controllers/timer.js"></script>
+<script src="js/filters/prepend-zero.filter.js"></script>
+</head>
+<body>
+
+<div ng-controller="TimerCtrl">
+	<p>Set Countdown Timer
+	<input type="number" ng-model="minutes" min="0" step="1" width="2" max="60"> : 
+	<input type="number" ng-model="seconds" min="0" max="59" step="1">
+	<h1>{{minutes}} : {{seconds | prependZero}}</h1>
+	
+	
+	<button ng-click="start()" ng-disabled="started" ng-show="!started">START</button>  
+	<button ng-model="pauseBtn" data-ng-click="pause()" ng-disabled="!started" ng-hide="!started">PAUSE</button> 
+	<button ng-click="resume()" ng-hide="pauseBtn" ng-disabled="pauseBtn">RESUME</button>
+</div>
+
+</body>
+</html>
