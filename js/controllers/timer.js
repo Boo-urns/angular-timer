@@ -4,7 +4,6 @@ app.controller( 'TimerCtrl', function CountdownCtrl($scope,$timeout) {
     $scope.minutes  = 0,
     $scope.seconds  = 0,
     $scope.pauseBtn = 1;
-    
     var countdown;
 
     $scope.start = function() {
