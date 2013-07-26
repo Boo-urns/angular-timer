@@ -41,7 +41,6 @@ app.controller( 'TimerCtrl', function CountdownCtrl($scope,$timeout) {
           	$scope.pause();
           }
       }        
-
     }
       
 		$scope.pause = function() {
