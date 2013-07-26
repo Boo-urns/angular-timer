@@ -23,25 +23,24 @@ app.controller( 'TimerCtrl', function CountdownCtrl($scope,$timeout) {
  			// it won't cancel if it's at the bottom!!
  			timerPromise = $timeout($scope.start, 1000);
   
+      if($scope.seconds > 0 && $scope.minutes >= 0) {
+      		$scope.seconds--;
+      
+      } else {
+      		if($scope.minutes > 0) {
+        		$scope.minutes--;
+            $scope.seconds = 59;
 
-        if($scope.seconds > 0 && $scope.minutes >= 0) {
-        		$scope.seconds--;
-        
-        } else {
-        		if($scope.minutes > 0) {
-	        		$scope.minutes--;
-	            $scope.seconds = 59;
+          } else if($scope.seconds > 0) {
+          	$scope.seconds--;
 
-            } else if($scope.seconds > 0) {
-            	$scope.seconds--;
-
-          	} else {
-            	$timeout.cancel(timerPromise);
-            	$scope.seconds = 0;
-            	console.log('countdown finished!');
-            	$scope.pause();
-            }
-        }        
+        	} else {
+          	$timeout.cancel(timerPromise);
+          	$scope.seconds = 0;
+          	console.log('countdown finished!');
+          	$scope.pause();
+          }
+      }        
 
     }
       
