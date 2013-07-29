@@ -37,7 +37,7 @@ app.controller( 'TimerCtrl', function CountdownCtrl($scope,$timeout) {
         	} else {
           	$timeout.cancel(timerPromise);
           	$scope.seconds = 0;
-          	console.log('countdown finished!');
+          	//console.log('countdown finished!');
           	$scope.pause();
           }
       }        
